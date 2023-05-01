@@ -37,5 +37,13 @@ namespace Calculator
             Console.Clear();
         }
 
+        public static void InvalidMenuOperation()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(MessageHandler.InvalidOperation);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
     }
 }
