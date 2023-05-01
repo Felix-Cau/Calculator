@@ -140,9 +140,9 @@ do
                 break;
             }
 
-            Result subtractResult = Calculations.Subtract(firstUserValue.Value,secondUserValue.Value);
-            Console.WriteLine($"Sum: {subtractResult.Value}");
-            memory.Value = subtractResult.Value;
+            calculationResult = Calculations.Subtract(firstUserValue.Value,secondUserValue.Value);
+            Console.WriteLine($"Sum: {calculationResult.Value}");
+            memory.Value = calculationResult.Value;
             MenuHandler.ClickToContinue();
 
             break;
@@ -164,9 +164,9 @@ do
                 break;
             }
 
-            Result multiplyResult = Calculations.Multiply(firstUserValue.Value, secondUserValue.Value);
-            Console.WriteLine($"Sum: {multiplyResult.Value}");
-            memory.Value = multiplyResult.Value;
+            calculationResult = Calculations.Multiply(firstUserValue.Value, secondUserValue.Value);
+            Console.WriteLine($"Sum: {calculationResult.Value}");
+            memory.Value = calculationResult.Value;
             MenuHandler.ClickToContinue();
 
             break;
@@ -188,14 +188,14 @@ do
                 break;
             }
 
-            Result divideResult = Calculations.Divide(firstUserValue.Value,secondUserValue.Value);
-            if (divideResult.Message != null)
+            calculationResult = Calculations.Divide(firstUserValue.Value, secondUserValue.Value);
+            if (calculationResult.Message != null)
             {
-                Console.WriteLine(divideResult.Message);
+                Console.WriteLine(calculationResult.Message);
                 break;
             }
-            Console.WriteLine($"Sum: {divideResult.Value}");
-            memory.Value = divideResult.Value;
+            Console.WriteLine($"Sum: {calculationResult.Value}");
+            memory.Value = calculationResult.Value;
             MenuHandler.ClickToContinue();
 
             break;
