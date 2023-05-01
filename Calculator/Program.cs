@@ -2,7 +2,7 @@
 
 Result firstResult = new();
 Result secondResult = new();
-Result memoryValue = new();
+Result memory = new();
 
 bool keepGoing = true;
 
@@ -28,15 +28,62 @@ do
             if (secondResult.Message != null)
             {
                 Console.WriteLine(secondResult.Message);
+                break;
             }
 
             Result addResult = Calculations.Add(firstResult.Value, secondResult.Value);
             Console.WriteLine($"Sum: {addResult.Value}");
+            memory.Value = addResult.Value;
+            MenuHandler.ClickToContinue();
 
             break;
         case "2":
+            Console.Clear();
+            UserInputHandler.AskForUserInput();
+            firstResult = UserInputHandler.GetUserInput();
+            if (firstResult.Message != null)
+            {
+                Console.WriteLine(firstResult.Message);
+                break;
+            }
+
+            UserInputHandler.AskForUserInput();
+            secondResult = UserInputHandler.GetUserInput();
+            if (secondResult.Message != null)
+            {
+                Console.WriteLine(secondResult.Message);
+                break;
+            }
+
+            Result subtractResult = Calculations.Subtract(firstResult.Value,secondResult.Value);
+            Console.WriteLine($"Sum: {subtractResult.Value}");
+            memory.Value = subtractResult.Value;
+            MenuHandler.ClickToContinue();
+
             break;
         case "3":
+            Console.Clear();
+            UserInputHandler.AskForUserInput();
+            firstResult = UserInputHandler.GetUserInput();
+            if (firstResult.Message != null)
+            {
+                Console.WriteLine(firstResult.Message);
+                break;
+            }
+
+            UserInputHandler.AskForUserInput();
+            secondResult = UserInputHandler.GetUserInput();
+            if (secondResult.Message != null)
+            {
+                Console.WriteLine(secondResult.Message);
+                break;
+            }
+
+            Result multiplyResult = Calculations.Multiply(firstResult.Value, secondResult.Value);
+            Console.WriteLine($"Sum: {multiplyResult.Value}");
+            memory.Value = multiplyResult.Value;
+            MenuHandler.ClickToContinue();
+
             break;
         case "4":
             break;

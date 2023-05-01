@@ -30,5 +30,12 @@ namespace Calculator
             Console.WriteLine("Enter a number to select operation: ");
         }
 
+        public static void ClickToContinue()
+        {
+            Console.WriteLine("Click any button to continue.");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
     }
 }
