@@ -11,7 +11,7 @@ bool keepGoing = true;
 do
 {
     MenuHandler.MainMenu();
-    string userSelection = Console.ReadLine();
+    string? userSelection = Console.ReadLine();
 
     switch (userSelection)
     {
@@ -38,12 +38,13 @@ do
             memory.Value = calculationResult.Value;
             MenuHandler.ClickToContinue();
 
-            bool keepSubtractGoing = true;
+            bool keepAddGoing = true;
 
             do
             {
+                Console.WriteLine($"Sum of last calculation: {memory.Value}");
                 MenuHandler.SubMenu();
-                string userAddSubSelection = Console.ReadLine();
+                string? userAddSubSelection = Console.ReadLine();
 
                 switch (userAddSubSelection)
                 {
@@ -113,13 +114,13 @@ do
                         MenuHandler.ClickToContinue();
                         break;
                     case "0":
-                        keepSubtractGoing = false;
+                        keepAddGoing = false;
                         break;
                     default:
                         MenuHandler.InvalidMenuOperation();
                         break;
                 }
-            } while ( keepSubtractGoing == true );
+            } while ( keepAddGoing == true );
 
             break;
         case "2":
@@ -149,10 +150,11 @@ do
 
             do
             {
+                Console.WriteLine($"Sum of last calculation: {memory.Value}");
                 MenuHandler.SubMenu();
-                string userAddSubSelection = Console.ReadLine();
+                string? userSubtractSubSelection = Console.ReadLine();
 
-                switch (userAddSubSelection)
+                switch (userSubtractSubSelection)
                 {
                     case "1":
                         Console.Clear();
@@ -252,6 +254,90 @@ do
             memory.Value = calculationResult.Value;
             MenuHandler.ClickToContinue();
 
+            bool keepMultiplyGoing = true;
+
+            do
+            {
+                Console.WriteLine($"Sum of last calculation: {memory.Value}");
+                MenuHandler.SubMenu();
+                string? userMultiplySubSelection = Console.ReadLine();
+
+                switch (userMultiplySubSelection)
+                {
+                    case "1":
+                        Console.Clear();
+                        UserInputHandler.AskForUserInput();
+                        firstUserValue = UserInputHandler.GetUserInput();
+                        if (firstUserValue.Message != null)
+                        {
+                            Console.WriteLine(firstUserValue.Message);
+                            break;
+                        }
+
+                        calculationResult = Calculations.Add(memory.Value, firstUserValue.Value);
+                        Console.WriteLine($"Sum: {calculationResult.Value}");
+                        memory.Value = calculationResult.Value;
+                        MenuHandler.ClickToContinue();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        UserInputHandler.AskForUserInput();
+                        firstUserValue = UserInputHandler.GetUserInput();
+                        if (firstUserValue.Message != null)
+                        {
+                            Console.WriteLine(firstUserValue.Message);
+                            break;
+                        }
+
+                        calculationResult = Calculations.Subtract(memory.Value, firstUserValue.Value);
+                        Console.WriteLine($"Sum: {calculationResult.Value}");
+                        memory.Value = calculationResult.Value;
+                        MenuHandler.ClickToContinue();
+                        break;
+                    case "3":
+                        Console.Clear();
+                        UserInputHandler.AskForUserInput();
+                        firstUserValue = UserInputHandler.GetUserInput();
+                        if (firstUserValue.Message != null)
+                        {
+                            Console.WriteLine(firstUserValue.Message);
+                            break;
+                        }
+
+                        calculationResult = Calculations.Multiply(memory.Value, firstUserValue.Value);
+                        Console.WriteLine($"Sum: {calculationResult.Value}");
+                        memory.Value = calculationResult.Value;
+                        MenuHandler.ClickToContinue();
+                        break;
+                    case "4":
+                        Console.Clear();
+                        UserInputHandler.AskForUserInput();
+                        firstUserValue = UserInputHandler.GetUserInput();
+                        if (firstUserValue.Message != null)
+                        {
+                            Console.WriteLine(firstUserValue.Message);
+                            break;
+                        }
+
+                        calculationResult = Calculations.Divide(memory.Value, firstUserValue.Value);
+                        if (calculationResult.Message != null)
+                        {
+                            Console.WriteLine(calculationResult.Message);
+                            break;
+                        }
+                        Console.WriteLine($"Sum: {calculationResult.Value}");
+                        memory.Value = calculationResult.Value;
+                        MenuHandler.ClickToContinue();
+                        break;
+                    case "0":
+                        keepMultiplyGoing = false;
+                        break;
+                    default:
+                        MenuHandler.InvalidMenuOperation();
+                        break;
+                }
+            } while (keepMultiplyGoing == true);
+
             break;
         case "4":
             Console.Clear();
@@ -280,6 +366,90 @@ do
             Console.WriteLine($"Sum: {calculationResult.Value}");
             memory.Value = calculationResult.Value;
             MenuHandler.ClickToContinue();
+
+            bool keepDivideGoing = true;
+
+            do
+            {
+                Console.WriteLine($"Sum of last calculation: {memory.Value}");
+                MenuHandler.SubMenu();
+                string? userDivideSubSelection = Console.ReadLine();
+
+                switch (userDivideSubSelection)
+                {
+                    case "1":
+                        Console.Clear();
+                        UserInputHandler.AskForUserInput();
+                        firstUserValue = UserInputHandler.GetUserInput();
+                        if (firstUserValue.Message != null)
+                        {
+                            Console.WriteLine(firstUserValue.Message);
+                            break;
+                        }
+
+                        calculationResult = Calculations.Add(memory.Value, firstUserValue.Value);
+                        Console.WriteLine($"Sum: {calculationResult.Value}");
+                        memory.Value = calculationResult.Value;
+                        MenuHandler.ClickToContinue();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        UserInputHandler.AskForUserInput();
+                        firstUserValue = UserInputHandler.GetUserInput();
+                        if (firstUserValue.Message != null)
+                        {
+                            Console.WriteLine(firstUserValue.Message);
+                            break;
+                        }
+
+                        calculationResult = Calculations.Subtract(memory.Value, firstUserValue.Value);
+                        Console.WriteLine($"Sum: {calculationResult.Value}");
+                        memory.Value = calculationResult.Value;
+                        MenuHandler.ClickToContinue();
+                        break;
+                    case "3":
+                        Console.Clear();
+                        UserInputHandler.AskForUserInput();
+                        firstUserValue = UserInputHandler.GetUserInput();
+                        if (firstUserValue.Message != null)
+                        {
+                            Console.WriteLine(firstUserValue.Message);
+                            break;
+                        }
+
+                        calculationResult = Calculations.Multiply(memory.Value, firstUserValue.Value);
+                        Console.WriteLine($"Sum: {calculationResult.Value}");
+                        memory.Value = calculationResult.Value;
+                        MenuHandler.ClickToContinue();
+                        break;
+                    case "4":
+                        Console.Clear();
+                        UserInputHandler.AskForUserInput();
+                        firstUserValue = UserInputHandler.GetUserInput();
+                        if (firstUserValue.Message != null)
+                        {
+                            Console.WriteLine(firstUserValue.Message);
+                            break;
+                        }
+
+                        calculationResult = Calculations.Divide(memory.Value, firstUserValue.Value);
+                        if (calculationResult.Message != null)
+                        {
+                            Console.WriteLine(calculationResult.Message);
+                            break;
+                        }
+                        Console.WriteLine($"Sum: {calculationResult.Value}");
+                        memory.Value = calculationResult.Value;
+                        MenuHandler.ClickToContinue();
+                        break;
+                    case "0":
+                        keepDivideGoing = false;
+                        break;
+                    default:
+                        MenuHandler.InvalidMenuOperation();
+                        break;
+                }
+            } while (keepDivideGoing == true);
 
             break;
         case "0":

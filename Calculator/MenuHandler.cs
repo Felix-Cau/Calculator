@@ -44,6 +44,5 @@ namespace Calculator
             Console.WriteLine(MessageHandler.InvalidOperation);
             Console.ForegroundColor = ConsoleColor.White;
         }
-
     }
 }
