@@ -20,7 +20,7 @@ namespace CalculatorTests
             expectedResult.Value = 5;
 
             //Act
-            addResult = Calculations.Add(x.Value, y.Value);
+            Result addResult = Calculations.Add(x.Value, y.Value);
 
             //Assert
             Assert.Equal(expectedResult.Value, addResult.Value);
